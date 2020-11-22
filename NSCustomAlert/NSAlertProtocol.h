@@ -13,11 +13,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class NSCustomAlert;
+
 @protocol NSAlertProtocol
 
 /* Given an NSError, create an NSAlert that can be used to present the error to the user. The error's localized description, recovery suggestion, and recovery options will be used to set the alert's message text, informative text, and button titles, respectively.
 */
-+ (NSCustomAlert *)alertWithError:(NSError *)error;
++ (NSCustomAlert*) alertWithError:(NSError *)error;
 
 - (void) release;
 

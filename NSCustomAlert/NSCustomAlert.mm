@@ -7,6 +7,16 @@
 // A replacement for NSAlert that ensuress the ability to display long strings of
 // text, overcoming this limitation for Big Sur's new vertically oriented alert
 // dialogs.
+//
+// Our measurements show that Big Sur alert boxes offer a space of 220 x 145 pixels
+// for the main message and informational message combined, including 15 pixel
+// gap between the two.
+//
+// So the strategy to decide which alert to use requires measuring both the
+// the height main message text and the informationaional text within a 220px
+// frame. If their combined height + 15px > 220, then we show our custom dialog
+// box. Otherwise we show the our custom alert modeled on the alert boxes in
+// macOS Catalina and prior.
 
 #include "NSCustomAlert.h"
 
@@ -33,6 +43,39 @@
 	return alert;
 }
 
++ (id<NSAlertProtocol>) createAlertForText:(NSString*) msgText infoText:(NSString*) infoText
+{
+
+	id<NSAlertProtocol> alert = NULL;
+	
+	const CGFloat textWidth = 145.0f; // whatever your desired width is
+	const CGFloat maxHeightForBigSurDialog = 220.0f; // whatever your desired width is
+
+	CGFloat totalHeight = 0.0f;
+
+	if (msgText != NULL) {
+		NSAttributedString* attrMsgText = [NSCustomAlert createStyledText:msgText fontSize:13 makeBold:YES];;
+		CGRect rect = [attrMsgText boundingRectWithSize:CGSizeMake(textWidth, 10000) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+		totalHeight += rect.size.height;
+	}
+
+	if (infoText != NULL) {
+		
+		NSAttributedString* attrInfoText = [NSCustomAlert createStyledText:infoText fontSize:11 makeBold:NO];;
+		CGRect rect = [attrInfoText boundingRectWithSize:CGSizeMake(textWidth, 10000) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+		totalHeight += rect.size.height;
+		totalHeight += 15.0;
+	}
+
+	if (totalHeight > maxHeightForBigSurDialog) {
+		alert = (id<NSAlertProtocol>) [[NSCustomAlert alloc] init];
+	} else {
+		alert = (id<NSAlertProtocol>) [[NSAlert alloc] init];
+	}
+	
+	return alert;
+}
+
 // --------------------------------------------------------------------------------
 // init
 // --------------------------------------------------------------------------------
@@ -47,6 +90,28 @@
 			styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskDocModalWindow
 			backing:NSBackingStoreBuffered
 			defer:YES];
+		
+		if (@available(macOS 10.14, *)) {
+			
+			NSView* view = [_panel contentView];
+			
+			NSVisualEffectView* effect = [[[NSVisualEffectView alloc] init] autorelease];
+			[effect setFrame:[view frame]];
+			
+			effect.blendingMode = NSVisualEffectBlendingModeBehindWindow;
+			effect.state = NSVisualEffectStateActive;
+			effect.material = NSVisualEffectMaterialWindowBackground;
+			effect.wantsLayer = true;
+			effect.layer.cornerRadius = 15.0;
+			effect.layer.masksToBounds = true;
+			
+			[_panel setOpaque:NO];
+			_panel.backgroundColor = [NSColor clearColor];
+			_panel.contentView = effect;
+			_panel.titlebarAppearsTransparent = YES;
+			// _panel.titleVisibility = NSWindowTitleHidden;
+
+		}
 	}
 	return self;
 }
@@ -226,6 +291,10 @@
     [self expandButtonSize:btn expandHorz:10.0f minWidth:75.0f];
 	
 	[_buttons addObject:btn];
+	
+//	if (@available(macOS 10.14, *)) {
+//		[[btn cell] setBackgroundColor:[NSColor redColor]];
+//	}
 	
 	[[_panel contentView] addSubview:btn];
 	

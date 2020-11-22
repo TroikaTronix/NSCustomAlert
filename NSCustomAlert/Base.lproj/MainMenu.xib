@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -68,9 +69,24 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="Show Alert" keyEquivalent="N" id="Was-JA-tGl">
+                            <menuItem title="Show Alert - Short" keyEquivalent="A" id="Was-JA-tGl">
                                 <connections>
-                                    <action selector="showCustomAlert:" target="Voe-Tx-rLC" id="dkx-3e-Zwm"/>
+                                    <action selector="showCustomAlertShort:" target="Voe-Tx-rLC" id="h5I-D5-dJ6"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Alert - Below Edge Case" keyEquivalent="B" id="1kU-dv-KBF">
+                                <connections>
+                                    <action selector="showCustomBelowEdgeCase:" target="Voe-Tx-rLC" id="TqA-w8-EDm"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Alert - Above Edge Case" keyEquivalent="C" id="6al-lC-JI4">
+                                <connections>
+                                    <action selector="showCustomAboveEdgeCase:" target="Voe-Tx-rLC" id="stx-p1-1YI"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Alert - Long" keyEquivalent="D" id="tL0-rg-zae">
+                                <connections>
+                                    <action selector="showCustomAlertLong:" target="Voe-Tx-rLC" id="Taq-9r-kE4"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="New" keyEquivalent="n" id="pk4-1d-Pe2">
@@ -633,7 +649,7 @@
                             <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
-                                    <action selector="toggleSourceList:" target="-1" id="iwa-gc-5KM"/>
+                                    <action selector="toggleSidebar:" target="-1" id="iwa-gc-5KM"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -683,12 +699,13 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="119" y="194"/>
         </menu>
         <window title="NSCustomAlert" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>

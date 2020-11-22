@@ -14,6 +14,8 @@
 #import <AppKit/NSAlert.h>
 #import <AppKit/AppKit.h>
 
+#import "NSAlertProtocol.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSCustomAlert : NSObject
@@ -55,6 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
 /* Given an NSError, create an NSAlert that can be used to present the error to the user. The error's localized description, recovery suggestion, and recovery options will be used to set the alert's message text, informative text, and button titles, respectively.
 */
 + (NSCustomAlert *)alertWithError:(NSError *)error;
+
++ (id<NSAlertProtocol>) createAlertForText:(NSString*) msgText infoText:(NSString*) infoText;
 
 @property (copy) NSString *messageText;
 @property (copy) NSString *informativeText;
