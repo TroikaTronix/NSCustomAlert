@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NSCustomAlert.h"
-#import "NSAlertProtocol.h"
+#import "NSCustomAlertProtocol.h"
 
 /*
 static NSString* NSAppearanceNameDarkAqua = @"NSAppearanceNameAquaDark";
@@ -92,7 +92,7 @@ static BOOL appearanceIsDark(NSAppearance * appearance)
 
 -(void) showCustomAlertForText:(NSString*)inMsgText infoText:(NSString*)inInfoText
 {
-	id<NSAlertProtocol> alertp = [NSCustomAlert createAlertForText:inMsgText infoText:inInfoText];
+	id<NSCustomAlertProtocol> alertp = [NSCustomAlert createAlertForMessageText:inMsgText infoText:inInfoText];
 
 	alertp.messageText = inMsgText;
 	alertp.informativeText = inInfoText;

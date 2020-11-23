@@ -1,8 +1,28 @@
 // --------------------------------------------------------------------------------
-//	NSAlertProtocol
+//	NSCustomAlertProtocol
 // --------------------------------------------------------------------------------
 //
-// (c) 2020 Mark F. Coniglio - all rights reserved
+// MIT License
+//
+// Copyright (c) 2020 Mark Coniglio/TroikaTronix
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is//
+// urnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 // A replacement for NSAlert that ensuress the ability to display long strings of
 // text, overcoming this limitation for Big Sur's new vertically oriented alert
@@ -14,7 +34,7 @@
 #import <AppKit/NSAlert.h>
 #import <AppKit/AppKit.h>
 
-#import "NSAlertProtocol.h"
+#import "NSCustomAlertProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -58,7 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 + (NSCustomAlert *)alertWithError:(NSError *)error;
 
-+ (id<NSAlertProtocol>) createAlertForText:(NSString*) msgText infoText:(NSString*) infoText;
++ (id<NSCustomAlertProtocol>) createAlertForMessageText:(NSString*) msgText infoText:(NSString*) infoText;
 
 @property (copy) NSString *messageText;
 @property (copy) NSString *informativeText;

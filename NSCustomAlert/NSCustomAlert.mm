@@ -1,8 +1,33 @@
 // --------------------------------------------------------------------------------
-//	NSAlertProtocol
+//	NSCustomAlertProtocol
 // --------------------------------------------------------------------------------
 //
-// (c) 2020 Mark F. Coniglio - all rights reserved
+// MIT License
+//
+// Copyright (c) 2020 Mark Coniglio/TroikaTronix
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is//
+// urnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+
+// --------------------------------------------------------------------------------
+//	DESCRIPTION
+// --------------------------------------------------------------------------------
 //
 // A replacement for NSAlert that ensuress the ability to display long strings of
 // text, overcoming this limitation for Big Sur's new vertically oriented alert
@@ -19,9 +44,6 @@
 // macOS Catalina and prior.
 
 #include "NSCustomAlert.h"
-
-//
-// (c) 2020 Mark F. Coniglio - all rights reserved
 
 @implementation NSCustomAlert
 
@@ -43,33 +65,40 @@
 	return alert;
 }
 
-+ (id<NSAlertProtocol>) createAlertForText:(NSString*) msgText infoText:(NSString*) infoText
++ (id<NSCustomAlertProtocol>) createAlertForMessageText:(NSString*) msgText infoText:(NSString*) infoText
 {
-	id<NSAlertProtocol> alert = NULL;
+	id<NSCustomAlertProtocol> alert = NULL;
 	
-	const CGFloat textWidth = 145.0f; // whatever your desired width is
-	const CGFloat maxHeightForBigSurDialog = 220.0f; // whatever your desired width is
-
-	CGFloat totalHeight = 0.0f;
-
-	if (msgText != NULL) {
-		NSAttributedString* attrMsgText = [NSCustomAlert createStyledText:msgText fontSize:13 makeBold:YES];;
-		CGRect rect = [attrMsgText boundingRectWithSize:CGSizeMake(textWidth, 10000) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
-		totalHeight += rect.size.height;
-	}
-
-	if (infoText != NULL) {
+    if (@available(macOS 10.16, *)) {
 		
-		NSAttributedString* attrInfoText = [NSCustomAlert createStyledText:infoText fontSize:11 makeBold:NO];;
-		CGRect rect = [attrInfoText boundingRectWithSize:CGSizeMake(textWidth, 10000) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
-		totalHeight += rect.size.height;
-		totalHeight += 15.0;
-	}
+		const CGFloat textWidth = 145.0f; // whatever your desired width is
+		const CGFloat maxHeightForBigSurDialog = 220.0f; // whatever your desired width is
 
-	if (totalHeight > maxHeightForBigSurDialog) {
-		alert = (id<NSAlertProtocol>) [[NSCustomAlert alloc] init];
+		CGFloat totalHeight = 0.0f;
+
+		if (msgText != NULL) {
+			NSAttributedString* attrMsgText = [NSCustomAlert createStyledText:msgText fontSize:13 makeBold:YES];;
+			CGRect rect = [attrMsgText boundingRectWithSize:CGSizeMake(textWidth, 10000) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+			totalHeight += rect.size.height;
+		}
+
+		if (infoText != NULL) {
+			
+			NSAttributedString* attrInfoText = [NSCustomAlert createStyledText:infoText fontSize:11 makeBold:NO];;
+			CGRect rect = [attrInfoText boundingRectWithSize:CGSizeMake(textWidth, 10000) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+			totalHeight += rect.size.height;
+			totalHeight += 15.0;
+		}
+
+		if (totalHeight > maxHeightForBigSurDialog) {
+			alert = (id<NSCustomAlertProtocol>) [[NSCustomAlert alloc] init];
+		} else {
+			alert = (id<NSCustomAlertProtocol>) [[NSAlert alloc] init];
+		}
+		
 	} else {
-		alert = (id<NSAlertProtocol>) [[NSAlert alloc] init];
+		
+		alert = (id<NSCustomAlertProtocol>) [[NSAlert alloc] init];
 	}
 	
 	return alert;
