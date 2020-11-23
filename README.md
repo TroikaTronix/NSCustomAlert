@@ -9,7 +9,7 @@ The NSCustomAlert class implements a direct replacement for NSAlert that imitate
 
 ## Implementation
 
-If you sijmply wish to revert back to the previous alert style in all cases, you can simply replace all references to NSAlert with NSCustomAlert instead. NSCustomAlert offers all the same methods as NSAlert, so adopting this class only requires changing NSAlert allocations to use NSCustomAlert instead.
+If you sijmply wish to revert back to the previous alert style in all cases, replace all references to NSAlert with NSCustomAlert instead. NSCustomAlert offers nearly all the same methods as NSAlert (see To Do, below for omissions), so adopting this class only requires changing NSAlert allocations to use NSCustomAlert instead.
 
 Furthermore, the global createAlertForMessageText:infoText method dynamically creates either an NSAlert (when the message and info text is short enough) or an NSCustomAlert if the text is too long to fit into Big Sur's smaller alert window. In this case, you will want to change variables of the type NSAlert* to id<NSAlertProtocol>, as defined in NSCustomAlertProtocol.h. This protocol defines all the methods shared by NSAlert and NSCustomAlert, allowing you to work with either NSAlert or NSCustomAlert regardless of which was created by calling createAlertForMessageText:infoText.
 
