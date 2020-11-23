@@ -55,7 +55,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSButton *)addButtonWithTitle:(NSString *)title;
 /* get the buttons, where the rightmost button is at index 0.
 */
+#if __MAC_OS_VERSION_MAX_ALLOWED < 101100
+@property (readonly, copy) NSArray *buttons;
+#else
 @property (readonly, copy) NSArray<NSButton *> *buttons;
+#endif
 
 /* In order to customize a return value for a button:
    setTag:(NSInteger)tag;	setting a tag on a button will cause that tag to be the button's return value
@@ -72,14 +76,20 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property BOOL showsHelp;
 
+#if __MAC_OS_VERSION_MAX_ALLOWED >= 101300
 @property (nullable, copy) NSHelpAnchorName helpAnchor;
+#endif
 
 @property NSAlertStyle alertStyle;
 
 /* The delegate of the receiver, currently only allows for custom help behavior of the alert.
    For apps linked against 10.12, this property has zeroing weak memory semantics. When linked against an older SDK this back to having `retain` semantics, matching legacy behavior.
  */
+#if __MAC_OS_VERSION_MAX_ALLOWED < 101100
+@property (assign) id<NSAlertDelegate> delegate;
+#else
 @property (nullable, weak) id<NSAlertDelegate> delegate;
+#endif
 
 /* -setShowsSuppressionButton: indicates whether or not the alert should contain a suppression checkbox.  The default is NO.  This checkbox is typically used to give the user an option to not show this alert again.  If shown, the suppression button will have a default localized title similar to @"Do not show this message again".  You can customize this title using [[alert suppressionButton] setTitle:].  When the alert is dismissed, you can get the state of the suppression button, using [[alert suppressionButton] state] and store the result in user defaults, for example.  This setting can then be checked before showing the alert again.  By default, the suppression button is positioned below the informative text, and above the accessory view (if any) and the alert buttons, and left-aligned with the informative text.  However do not count on the placement of this button, since it might be moved if the alert panel user interface is changed in the future. If you need a checkbox for purposes other than suppression text, it is recommended you create your own using an accessory view.
 */

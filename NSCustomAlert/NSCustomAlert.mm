@@ -45,6 +45,30 @@
 
 #include "NSCustomAlert.h"
 
+#if __MAC_OS_VERSION_MAX_ALLOWED < 101100
+typedef void* NSStringDrawingContext;
+@interface NSAttributedString (NSMeasurableTextString)
+- (CGRect)boundingRectWithSize:(CGSize)size
+                       options:(NSStringDrawingOptions)options
+                       context:(NSStringDrawingContext *)context;
+@end
+
+#define NSAlertStyleWarning			NSWarningAlertStyle
+#define NSAlertStyleInformational	NSInformationalAlertStyle
+#define NSAlertStyleCritical		NSCriticalAlertStyle
+
+enum {
+	NSWindowStyleMaskTitled = 1 << 0,
+	NSWindowStyleMaskDocModalWindow = 1 << 6,
+	NSVisualEffectMaterialWindowBackground = 12
+};
+
+@interface NSImageView (ImageViewWithImage)
++ (NSImageView*) imageViewWithImage:(NSImage*)inImage;
+@end
+
+#endif
+
 @implementation NSCustomAlert
 
 @synthesize messageText;
@@ -52,7 +76,9 @@
 @synthesize icon = _icon;
 @synthesize buttons;
 @synthesize showsHelp;
+#if __MAC_OS_VERSION_MAX_ALLOWED >= 1013
 @synthesize helpAnchor;
+#endif
 @synthesize alertStyle;
 @synthesize delegate;
 @synthesize showsSuppressionButton;
@@ -329,7 +355,7 @@
 // buttonPressed
 // --------------------------------------------------------------------------------
 // Handle a button click in the alert. When this method is executed, either
-// endSheet or stopModalWithCode is called to store the users response and exit
+// endSheet or e is called to store the users response and exit
 // the alert. The alert's window is also hidden
 
 - (void) buttonPressed:(id)sender
@@ -340,7 +366,7 @@
 	for (NSUInteger i=0; i<buttonCount; i++) {
 		NSButton* btn = [_buttons objectAtIndex:i];
 		if (sender == btn) {
-			response = i+1;
+			response = NSAlertFirstButtonReturn + i;
 			break;
 		}
 	}
@@ -367,7 +393,7 @@
 	[tf setBordered:NO];
 	[tf setBezeled:NO];
 	[tf setEditable:NO];
-	[tf setSelectable:YES];
+	[tf setSelectable:NO];
 	[tf setAttributedStringValue:inString];
 	return tf;
 }
@@ -705,7 +731,8 @@
 	}
 	suppressionButton = nil;
 
-	delegate = nil;
+	_delegate = nil;
+	
 	accessoryView = nil;
 	
 	if (_helpButton != NULL) {
