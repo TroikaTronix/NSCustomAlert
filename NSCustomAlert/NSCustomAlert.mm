@@ -69,13 +69,15 @@
 	+ (NSImageView*) imageViewWithImage:(NSImage*)inImage;
 	@end
 
-	// #define the new style Alert Styles using the old constants
 
-	// add these missing enumerations and constants
 	enum {
+		
+		// define the new style Alert Styles using the old constants
 		NSAlertStyleWarning = NSWarningAlertStyle,
 		NSAlertStyleInformational = NSInformationalAlertStyle,
 		NSAlertStyleCritical = NSCriticalAlertStyle,
+		
+		// add these missing enumerations and constants
 		NSWindowStyleMaskTitled = 1 << 0,
 		NSWindowStyleMaskDocModalWindow = 1 << 6,
 		NSVisualEffectMaterialWindowBackground = 12
@@ -96,7 +98,7 @@
 @synthesize alertStyle;
 @synthesize delegate;
 @synthesize showsSuppressionButton;
-@synthesize suppressionButton;
+// @synthesize suppressionButton;
 @synthesize accessoryView;
 
 + (NSCustomAlert *)alertWithError:(NSError *)error
@@ -369,7 +371,7 @@
 // buttonPressed
 // --------------------------------------------------------------------------------
 // Handle a button click in the alert. When this method is executed, either
-// endSheet or e is called to store the users response and exit
+// endSheet or stopModalWithCode is called to store the users response and exit
 // the alert. The alert's window is also hidden
 
 - (void) buttonPressed:(id)sender
@@ -407,8 +409,10 @@
 	[tf setBordered:NO];
 	[tf setBezeled:NO];
 	[tf setEditable:NO];
-	[tf setSelectable:NO];
+	[tf setSelectable:YES];
+	[tf setAllowsEditingTextAttributes:YES];
 	[tf setAttributedStringValue:inString];
+	
 	return tf;
 }
 
@@ -447,11 +451,6 @@
 	NSMutableAttributedString* str = [[[NSMutableAttributedString alloc] initWithString:inString] autorelease];
 	NSUInteger strLen = [str length];
 
-	// SET WRAPPING PARAGRAPH STYLE
-	NSMutableParagraphStyle *paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-	paraStyle.lineBreakMode = NSLineBreakByWordWrapping;
-	paraStyle.lineHeightMultiple = 0.85;
-
 	// SET FONT, FONT SIZE, BOLD OR NORMAL
 	NSFont* font = NULL;
 	if (inMakeBold) {
@@ -460,6 +459,12 @@
 		font = [NSFont fontWithName:@"Helvetica Neue" size:inFontSize];
 	}
 	
+	// SET WRAPPING PARAGRAPH STYLE
+	NSMutableParagraphStyle *paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
+	paraStyle.lineBreakMode = NSLineBreakByWordWrapping;
+	NSLayoutManager *layoutManager = [[[NSLayoutManager alloc] init]  autorelease];
+	paraStyle.maximumLineHeight = [layoutManager defaultLineHeightForFont:font];
+
 	NSDictionary *attr = @{
 		NSFontAttributeName: font,
 		NSParagraphStyleAttributeName: paraStyle
@@ -742,8 +747,8 @@
 
 	if (_suppressionButton != NULL) {
 		[_suppressionButton removeFromSuperview];
+		_suppressionButton = NULL;
 	}
-	suppressionButton = nil;
 
 	_delegate = nil;
 	
