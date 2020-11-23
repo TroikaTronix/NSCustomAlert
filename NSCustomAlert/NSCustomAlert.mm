@@ -45,27 +45,41 @@
 
 #include "NSCustomAlert.h"
 
-#if __MAC_OS_VERSION_MAX_ALLOWED < 101100
-typedef void* NSStringDrawingContext;
-@interface NSAttributedString (NSMeasurableTextString)
-- (CGRect)boundingRectWithSize:(CGSize)size
-                       options:(NSStringDrawingOptions)options
-                       context:(NSStringDrawingContext *)context;
-@end
+// --------------------------------------------------------------------------------
+// OLDER SDK COMPATIBILITY
+// --------------------------------------------------------------------------------
 
-#define NSAlertStyleWarning			NSWarningAlertStyle
-#define NSAlertStyleInformational	NSInformationalAlertStyle
-#define NSAlertStyleCritical		NSCriticalAlertStyle
 
-enum {
-	NSWindowStyleMaskTitled = 1 << 0,
-	NSWindowStyleMaskDocModalWindow = 1 << 6,
-	NSVisualEffectMaterialWindowBackground = 12
-};
+#if MAC_OS_X_VERSION_MAX_ALLOWED < 101100
 
-@interface NSImageView (ImageViewWithImage)
-+ (NSImageView*) imageViewWithImage:(NSImage*)inImage;
-@end
+	// NSStringDrawingContext is not defined prior to 10.11, but we pass
+	// NULL for this anyway, so just deifne it as void
+	typedef void* NSStringDrawingContext;
+
+	// NSAttributedString category defines boundingRectWithSize:options:context
+	@interface NSAttributedString (NSMeasurableTextString)
+
+	- (CGRect)boundingRectWithSize:(CGSize)size
+						   options:(NSStringDrawingOptions)options
+						   context:(NSStringDrawingContext *)context;
+	@end
+
+	// NSImageView category defines imageViewWithImage:
+	@interface NSImageView (ImageViewWithImage)
+	+ (NSImageView*) imageViewWithImage:(NSImage*)inImage;
+	@end
+
+	// #define the new style Alert Styles using the old constants
+
+	// add these missing enumerations and constants
+	enum {
+		NSAlertStyleWarning = NSWarningAlertStyle,
+		NSAlertStyleInformational = NSInformationalAlertStyle,
+		NSAlertStyleCritical = NSCriticalAlertStyle,
+		NSWindowStyleMaskTitled = 1 << 0,
+		NSWindowStyleMaskDocModalWindow = 1 << 6,
+		NSVisualEffectMaterialWindowBackground = 12
+	};
 
 #endif
 
@@ -76,7 +90,7 @@ enum {
 @synthesize icon = _icon;
 @synthesize buttons;
 @synthesize showsHelp;
-#if __MAC_OS_VERSION_MAX_ALLOWED >= 1013
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= 101300
 @synthesize helpAnchor;
 #endif
 @synthesize alertStyle;

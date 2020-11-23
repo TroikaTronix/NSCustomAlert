@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 	
 	// HELP BUTTON
 	NSButton*			_helpButton;				// help button -- not yet implemented
-#if __MAC_OS_VERSION_MAX_ALLOWED >= 101300
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= 101300
 	NSHelpAnchorName	_helpAnchor;				// help anchor -- not yet implemented
 #endif
 
@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSButton *)addButtonWithTitle:(NSString *)title;
 /* get the buttons, where the rightmost button is at index 0.
 */
-#if __MAC_OS_VERSION_MAX_ALLOWED < 101100
+#if MAC_OS_X_VERSION_MAX_ALLOWED < 101100
 @property (readonly, copy) NSArray *buttons;
 #else
 @property (readonly, copy) NSArray<NSButton *> *buttons;
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property BOOL showsHelp;
 
-#if __MAC_OS_VERSION_MAX_ALLOWED >= 101300
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= 101300
 @property (nullable, copy) NSHelpAnchorName helpAnchor;
 #endif
 
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
 /* The delegate of the receiver, currently only allows for custom help behavior of the alert.
    For apps linked against 10.12, this property has zeroing weak memory semantics. When linked against an older SDK this back to having `retain` semantics, matching legacy behavior.
  */
-#if __MAC_OS_VERSION_MAX_ALLOWED < 101100
+#if MAC_OS_X_VERSION_MAX_ALLOWED < 101100
 @property (assign) id<NSAlertDelegate> delegate;
 #else
 @property (nullable, weak) id<NSAlertDelegate> delegate;
