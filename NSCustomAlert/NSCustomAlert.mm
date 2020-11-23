@@ -83,6 +83,12 @@
 		NSVisualEffectMaterialWindowBackground = 12
 	};
 
+#elif (MAC_OS_X_VERSION_MAX_ALLOWED < 101400)
+
+	enum {
+		NSVisualEffectMaterialWindowBackground = 12
+	};
+
 #endif
 
 @implementation NSCustomAlert
@@ -170,7 +176,7 @@
 			
 			effect.blendingMode = NSVisualEffectBlendingModeBehindWindow;
 			effect.state = NSVisualEffectStateActive;
-			effect.material = NSVisualEffectMaterialWindowBackground;
+			effect.material = (NSVisualEffectMaterial) NSVisualEffectMaterialWindowBackground;
 			effect.wantsLayer = true;
 			effect.layer.cornerRadius = 15.0;
 			effect.layer.masksToBounds = true;
@@ -348,6 +354,7 @@
 	NSRect frame = NSMakeRect(0, 0, 40, 30);
 	NSButton* btn = [[[NSButton alloc] initWithFrame:frame] autorelease];
 	[btn setBezelStyle:NSRoundedBezelStyle];
+	[btn setFont:[NSFont systemFontOfSize:13]];
 
 	[btn setTarget:self];
     [btn setAction:@selector(buttonPressed:)];
@@ -423,6 +430,7 @@
 	NSButton *chkbox = [[NSButton alloc] initWithFrame:frame];
 	[chkbox setButtonType:NSSwitchButton];
 	[chkbox setTitle:@"Do not show this message again"];
+	[chkbox setFont:[NSFont systemFontOfSize:13]];
 	return chkbox;
 }
 
