@@ -45,7 +45,6 @@
 
 + (id<NSAlertProtocol>) createAlertForText:(NSString*) msgText infoText:(NSString*) infoText
 {
-
 	id<NSAlertProtocol> alert = NULL;
 	
 	const CGFloat textWidth = 145.0f; // whatever your desired width is
@@ -110,7 +109,6 @@
 			_panel.contentView = effect;
 			_panel.titlebarAppearsTransparent = YES;
 			// _panel.titleVisibility = NSWindowTitleHidden;
-
 		}
 	}
 	return self;
@@ -277,17 +275,14 @@
 - (NSButton *)addButtonWithTitle:(NSString *)title
 {
 	NSRect frame = NSMakeRect(0, 0, 40, 30);
-    NSButton* btn = [[[NSButton alloc] initWithFrame:frame] autorelease];
-	[btn setTitle:title];
+	NSButton* btn = [[[NSButton alloc] initWithFrame:frame] autorelease];
+	[btn setBezelStyle:NSRoundedBezelStyle];
 
-    [btn setTarget:self];
+	[btn setTarget:self];
     [btn setAction:@selector(buttonPressed:)];
 	
-    // [btn setButtonType:NSMomentaryLightButton];
-    [btn setBezelStyle:NSRoundedBezelStyle];
-
-    [btn sizeToFit];
-	
+	[btn setTitle:title];
+	[btn sizeToFit];
     [self expandButtonSize:btn expandHorz:10.0f minWidth:75.0f];
 	
 	[_buttons addObject:btn];
@@ -699,7 +694,6 @@
 		[_panel release];
 		_panel = NULL;
 	}
-	
 }
 
 // --------------------------------------------------------------------------------

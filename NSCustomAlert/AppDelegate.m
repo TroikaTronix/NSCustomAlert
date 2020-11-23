@@ -97,9 +97,21 @@ static BOOL appearanceIsDark(NSAppearance * appearance)
 	alertp.messageText = inMsgText;
 	alertp.informativeText = inInfoText;
 	alertp.alertStyle = NSAlertStyleCritical;
+	
+	// uncomment this if you want to provide a custom icon to the alert
+	// alertp.icon = [NSImage imageNamed:NSImageNameComputer];
+
+	// uncomment this if you want to show the supression button
 	// alertp.showsSuppressionButton = YES;
+	
+	// ucomment this if you want to give the supression button a custom name
 	// alertp.suppressionButton.title = @"Custom Supression Button";
-	alertp.icon = [NSImage imageNamed:NSImageNameComputer];
+	
+	// NOTE: this technique does work with Big Sur's dialog to widen them... but then the
+	// buttons are still arranged vertically, which doesn't look so nice.
+	// alertp.accessoryView = [[[NSView alloc] initWithFrame:NSMakeRect(0, 0, 500, 0)] autorelease];
+	
+	// adding buttons works the same as it does with the real NSAlert
 	
 	[alertp addButtonWithTitle:@"OK"];
 	[alertp addButtonWithTitle:@"Cancel"];
