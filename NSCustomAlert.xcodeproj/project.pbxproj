@@ -58,16 +58,16 @@
 		F25F09D32567CD9000864CD5 /* NSCustomAlert */ = {
 			isa = PBXGroup;
 			children = (
+				F281946D256A4FEE00BCAB68 /* NSCustomAlert.entitlements */,
 				F25F09D42567CD9000864CD5 /* AppDelegate.h */,
-				F25F09D52567CD9000864CD5 /* AppDelegate.m */,
-				F25F09E52567CEE500864CD5 /* NSCustomAlert.mm */,
 				F25F09E72567D14300864CD5 /* NSCustomAlert.h */,
 				F281946E256A573B00BCAB68 /* NSCustomAlertProtocol.h */,
+				F25F09D52567CD9000864CD5 /* AppDelegate.m */,
+				F25F09DD2567CD9100864CD5 /* main.m */,
+				F25F09E52567CEE500864CD5 /* NSCustomAlert.mm */,
+				F25F09DC2567CD9100864CD5 /* Info.plist */,
 				F25F09D72567CD9100864CD5 /* Assets.xcassets */,
 				F25F09D92567CD9100864CD5 /* MainMenu.xib */,
-				F25F09DC2567CD9100864CD5 /* Info.plist */,
-				F25F09DD2567CD9100864CD5 /* main.m */,
-				F281946D256A4FEE00BCAB68 /* NSCustomAlert.entitlements */,
 			);
 			path = NSCustomAlert;
 			sourceTree = "<group>";
