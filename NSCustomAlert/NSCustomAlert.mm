@@ -475,8 +475,11 @@ enum { NSVisualEffectMaterialWindowBackground = 12 };
   NSLayoutManager* layoutManager = [[[NSLayoutManager alloc] init] autorelease];
   paraStyle.maximumLineHeight = [layoutManager defaultLineHeightForFont:font];
 
-  NSDictionary* attr =
-      @{NSFontAttributeName : font, NSParagraphStyleAttributeName : paraStyle};
+  NSDictionary* attr = @{
+    NSFontAttributeName : font,
+    NSParagraphStyleAttributeName : paraStyle,
+    NSForegroundColorAttributeName : [NSColor controlTextColor]
+  };
 
   [str setAttributes:attr range:NSMakeRange(0, strLen)];
 

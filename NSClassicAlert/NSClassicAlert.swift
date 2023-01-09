@@ -170,7 +170,8 @@ public class NSClassicAlert: NSObject, NSClassicAlertProtocol {
     paraStyle.lineBreakMode = .byWordWrapping
     let layoutMgr = NSLayoutManager()
     paraStyle.maximumLineHeight = layoutMgr.defaultLineHeight(for: fntSFUI)
-    let attr: [NSAttributedString.Key: Any] = [.font: fntSFUI, .paragraphStyle: paraStyle]
+    var attr: [NSAttributedString.Key: Any] = [.font: fntSFUI, .paragraphStyle: paraStyle]
+    attr[.foregroundColor] = NSColor.controlTextColor
     str.setAttributes(attr, range: NSRange(location: 0, length: str.length))
     return str
   }
