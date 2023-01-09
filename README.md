@@ -23,7 +23,8 @@ Under earlier versions of macOS, a normal NSAlert will always be used.
 
 ## To Do
 
-The help button and accessory view features have not yet been implemented because I didn't need them. If you impelement these, please feel free to issue a pull request.
+- **ObjC ver.**: The help button and accessory view features have not yet been implemented because I didn't need them. If you implement these, please feel free to issue a pull request.
+- **Swift ver.**: Button action selector doesn't work, rendering all buttons ineffective.
 
 ## Formatting
 

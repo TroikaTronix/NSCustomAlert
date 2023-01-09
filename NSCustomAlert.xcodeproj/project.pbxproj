@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2BB698296BD329005E39E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2BB697296BD329005E39E0 /* AppDelegate.swift */; };
+		5B2BB69A296BD32C005E39E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B2BB699296BD32C005E39E0 /* Assets.xcassets */; };
+		5B2BB69D296BD32C005E39E0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2BB69B296BD32C005E39E0 /* MainMenu.xib */; };
+		5B2BB6A3296BD34C005E39E0 /* NSClassicAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B375A1F296AB5E50078574C /* NSClassicAlert.framework */; };
+		5B2BB6A4296BD34C005E39E0 /* NSClassicAlert.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B375A1F296AB5E50078574C /* NSClassicAlert.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B375A23296AB5E50078574C /* NSClassicAlert.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5B375A22296AB5E50078574C /* NSClassicAlert.docc */; };
+		5B375A29296AB5E50078574C /* NSClassicAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B375A1F296AB5E50078574C /* NSClassicAlert.framework */; };
+		5B375A2E296AB5E50078574C /* NSClassicAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B375A2D296AB5E50078574C /* NSClassicAlertTests.swift */; };
+		5B375A36296AB6AB0078574C /* NSClassicAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B375A21296AB5E50078574C /* NSClassicAlert.swift */; };
 		F25F09D62567CD9000864CD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F25F09D52567CD9000864CD5 /* AppDelegate.m */; };
 		F25F09D82567CD9100864CD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F25F09D72567CD9100864CD5 /* Assets.xcassets */; };
 		F25F09DB2567CD9100864CD5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25F09D92567CD9100864CD5 /* MainMenu.xib */; };
@@ -14,7 +23,48 @@
 		F25F09E62567CEE500864CD5 /* NSCustomAlert.mm in Sources */ = {isa = PBXBuildFile; fileRef = F25F09E52567CEE500864CD5 /* NSCustomAlert.mm */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5B2BB6A5296BD34C005E39E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F25F09C92567CD9000864CD5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B375A1E296AB5E50078574C;
+			remoteInfo = NSClassicAlert;
+		};
+		5B375A2A296AB5E50078574C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F25F09C92567CD9000864CD5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B375A1E296AB5E50078574C;
+			remoteInfo = NSClassicAlert;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5B2BB6A7296BD34C005E39E0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5B2BB6A4296BD34C005E39E0 /* NSClassicAlert.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5B2BB695296BD329005E39E0 /* NSClassicAlertDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSClassicAlertDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B2BB697296BD329005E39E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B2BB699296BD32C005E39E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B2BB69C296BD32C005E39E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5B2BB69E296BD32C005E39E0 /* NSClassicAlertDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NSClassicAlertDemo.entitlements; sourceTree = "<group>"; };
+		5B375A1F296AB5E50078574C /* NSClassicAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSClassicAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B375A21296AB5E50078574C /* NSClassicAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSClassicAlert.swift; sourceTree = "<group>"; };
+		5B375A22296AB5E50078574C /* NSClassicAlert.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NSClassicAlert.docc; sourceTree = "<group>"; };
+		5B375A28296AB5E50078574C /* NSClassicAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSClassicAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B375A2D296AB5E50078574C /* NSClassicAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSClassicAlertTests.swift; sourceTree = "<group>"; };
 		F25F09D12567CD9000864CD5 /* NSCustomAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSCustomAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F25F09D42567CD9000864CD5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F25F09D52567CD9000864CD5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -29,6 +79,29 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5B2BB692296BD329005E39E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B2BB6A3296BD34C005E39E0 /* NSClassicAlert.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B375A1C296AB5E50078574C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B375A25296AB5E50078574C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B375A29296AB5E50078574C /* NSClassicAlert.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F25F09CE2567CD9000864CD5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,11 +112,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B2BB696296BD329005E39E0 /* NSClassicAlertDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5B2BB697296BD329005E39E0 /* AppDelegate.swift */,
+				5B2BB699296BD32C005E39E0 /* Assets.xcassets */,
+				5B2BB69B296BD32C005E39E0 /* MainMenu.xib */,
+				5B2BB69E296BD32C005E39E0 /* NSClassicAlertDemo.entitlements */,
+			);
+			path = NSClassicAlertDemo;
+			sourceTree = "<group>";
+		};
+		5B2BB6A2296BD34C005E39E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B375A20296AB5E50078574C /* NSClassicAlert */ = {
+			isa = PBXGroup;
+			children = (
+				5B375A21296AB5E50078574C /* NSClassicAlert.swift */,
+				5B375A22296AB5E50078574C /* NSClassicAlert.docc */,
+			);
+			path = NSClassicAlert;
+			sourceTree = "<group>";
+		};
+		5B375A2C296AB5E50078574C /* NSClassicAlertTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B375A2D296AB5E50078574C /* NSClassicAlertTests.swift */,
+			);
+			path = NSClassicAlertTests;
+			sourceTree = "<group>";
+		};
 		F25F09C82567CD9000864CD5 = {
 			isa = PBXGroup;
 			children = (
 				F25F09D32567CD9000864CD5 /* NSCustomAlert */,
+				5B375A20296AB5E50078574C /* NSClassicAlert */,
+				5B375A2C296AB5E50078574C /* NSClassicAlertTests */,
+				5B2BB696296BD329005E39E0 /* NSClassicAlertDemo */,
 				F25F09D22567CD9000864CD5 /* Products */,
+				5B2BB6A2296BD34C005E39E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				F25F09D12567CD9000864CD5 /* NSCustomAlert.app */,
+				5B375A1F296AB5E50078574C /* NSClassicAlert.framework */,
+				5B375A28296AB5E50078574C /* NSClassicAlertTests.xctest */,
+				5B2BB695296BD329005E39E0 /* NSClassicAlertDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,7 +189,72 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5B375A1A296AB5E50078574C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		5B2BB694296BD329005E39E0 /* NSClassicAlertDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B2BB6A1296BD32C005E39E0 /* Build configuration list for PBXNativeTarget "NSClassicAlertDemo" */;
+			buildPhases = (
+				5B2BB691296BD329005E39E0 /* Sources */,
+				5B2BB692296BD329005E39E0 /* Frameworks */,
+				5B2BB693296BD329005E39E0 /* Resources */,
+				5B2BB6A7296BD34C005E39E0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B2BB6A6296BD34C005E39E0 /* PBXTargetDependency */,
+			);
+			name = NSClassicAlertDemo;
+			productName = NSClassicAlertDemo;
+			productReference = 5B2BB695296BD329005E39E0 /* NSClassicAlertDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B375A1E296AB5E50078574C /* NSClassicAlert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B375A34296AB5E50078574C /* Build configuration list for PBXNativeTarget "NSClassicAlert" */;
+			buildPhases = (
+				5B375A1A296AB5E50078574C /* Headers */,
+				5B375A1B296AB5E50078574C /* Sources */,
+				5B375A1C296AB5E50078574C /* Frameworks */,
+				5B375A1D296AB5E50078574C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSClassicAlert;
+			productName = NSClassicAlert;
+			productReference = 5B375A1F296AB5E50078574C /* NSClassicAlert.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5B375A27296AB5E50078574C /* NSClassicAlertTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B375A35296AB5E50078574C /* Build configuration list for PBXNativeTarget "NSClassicAlertTests" */;
+			buildPhases = (
+				5B375A24296AB5E50078574C /* Sources */,
+				5B375A25296AB5E50078574C /* Frameworks */,
+				5B375A26296AB5E50078574C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B375A2B296AB5E50078574C /* PBXTargetDependency */,
+			);
+			name = NSClassicAlertTests;
+			productName = NSClassicAlertTests;
+			productReference = 5B375A28296AB5E50078574C /* NSClassicAlertTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F25F09D02567CD9000864CD5 /* NSCustomAlert */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F25F09E22567CD9100864CD5 /* Build configuration list for PBXNativeTarget "NSCustomAlert" */;
@@ -98,9 +278,19 @@
 		F25F09C92567CD9000864CD5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Mark Coniglio";
 				TargetAttributes = {
+					5B2BB694296BD329005E39E0 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					5B375A1E296AB5E50078574C = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					5B375A27296AB5E50078574C = {
+						CreatedOnToolsVersion = 14.1;
+					};
 					F25F09D02567CD9000864CD5 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -120,11 +310,37 @@
 			projectRoot = "";
 			targets = (
 				F25F09D02567CD9000864CD5 /* NSCustomAlert */,
+				5B375A1E296AB5E50078574C /* NSClassicAlert */,
+				5B375A27296AB5E50078574C /* NSClassicAlertTests */,
+				5B2BB694296BD329005E39E0 /* NSClassicAlertDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5B2BB693296BD329005E39E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B2BB69A296BD32C005E39E0 /* Assets.xcassets in Resources */,
+				5B2BB69D296BD32C005E39E0 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B375A1D296AB5E50078574C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B375A26296AB5E50078574C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F25F09CF2567CD9000864CD5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,6 +353,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5B2BB691296BD329005E39E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B2BB698296BD329005E39E0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B375A1B296AB5E50078574C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B375A36296AB6AB0078574C /* NSClassicAlert.swift in Sources */,
+				5B375A23296AB5E50078574C /* NSClassicAlert.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B375A24296AB5E50078574C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B375A2E296AB5E50078574C /* NSClassicAlertTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F25F09CD2567CD9000864CD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,7 +390,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5B2BB6A6296BD34C005E39E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B375A1E296AB5E50078574C /* NSClassicAlert */;
+			targetProxy = 5B2BB6A5296BD34C005E39E0 /* PBXContainerItemProxy */;
+		};
+		5B375A2B296AB5E50078574C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B375A1E296AB5E50078574C /* NSClassicAlert */;
+			targetProxy = 5B375A2A296AB5E50078574C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		5B2BB69B296BD32C005E39E0 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B2BB69C296BD32C005E39E0 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		F25F09D92567CD9100864CD5 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -161,6 +423,197 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5B2BB69F296BD32C005E39E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = NSClassicAlertDemo/NSClassicAlertDemo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WEY3MS268C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Mark Coniglio. All rights reserved.";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.atelierInmu.NSClassicAlertDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5B2BB6A0296BD32C005E39E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = NSClassicAlertDemo/NSClassicAlertDemo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WEY3MS268C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Mark Coniglio. All rights reserved.";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.atelierInmu.NSClassicAlertDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5B375A30296AB5E50078574C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEY3MS268C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Mark Coniglio. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.atelierInmu.NSClassicAlert;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5B375A31296AB5E50078574C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEY3MS268C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Mark Coniglio. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.atelierInmu.NSClassicAlert;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5B375A32296AB5E50078574C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WEY3MS268C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.atelierInmu.NSClassicAlertTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5B375A33296AB5E50078574C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WEY3MS268C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.atelierInmu.NSClassicAlertTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		F25F09E02567CD9100864CD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -313,6 +766,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5B2BB6A1296BD32C005E39E0 /* Build configuration list for PBXNativeTarget "NSClassicAlertDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B2BB69F296BD32C005E39E0 /* Debug */,
+				5B2BB6A0296BD32C005E39E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B375A34296AB5E50078574C /* Build configuration list for PBXNativeTarget "NSClassicAlert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B375A30296AB5E50078574C /* Debug */,
+				5B375A31296AB5E50078574C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B375A35296AB5E50078574C /* Build configuration list for PBXNativeTarget "NSClassicAlertTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B375A32296AB5E50078574C /* Debug */,
+				5B375A33296AB5E50078574C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F25F09CC2567CD9000864CD5 /* Build configuration list for PBXProject "NSCustomAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
