@@ -8,7 +8,7 @@ In macOS Big Sur, the appearance of `NSAlert` dialogs changed: the layout is ver
 
 The `NSCustomAlert` class provides a direct replacement for `NSAlert` that imitates the appearance of alerts shown in macOS Catalina and earlier.
 
-## Use in Isadora
+## Use in TroikaTronix Products
 
 This code is used TroikaTronix's products, although that source code is maintained separately. TroikaTronix released NSCustomAlert to the community because we felt it could be useful to other developers facing similar problems caused by the size limitations of the newer macOS alert design.
 
